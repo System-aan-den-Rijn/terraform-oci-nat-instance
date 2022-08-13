@@ -1,6 +1,6 @@
 # Terraform Module for Nat Instance in OCI
 
-This little module can be used to deploy a Compute Instance that can be used as a Nat Gateway in the Oracle Cloud, for example, when you're using the Always Free Resources which do not include the standard Nat Gateway.
+This little module can be used to deploy a Compute Instance that can be used as a Nat Gateway, for example, when you're using the Always Free Resources which do not include the standard Nat Gateway. And as an output it gives you a Network Entity ID that you can use in a standard route table.
 
 ## Notes
 
