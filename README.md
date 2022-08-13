@@ -28,8 +28,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | n/a |
-| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
+| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | OCID of the Private IP address - You'll need specifically this value to create the route rules in your route table |
+| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | That. |
 
 ## Providers
 
