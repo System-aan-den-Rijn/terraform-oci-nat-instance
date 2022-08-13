@@ -6,6 +6,27 @@ This little module can be used to deploy a Compute Instance that can be used as 
 
 No requirements.
 
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_compartment_id"></a> [compartment\_id](#input\_compartment\_id) | OCID of the Compartment in which the instance will be deployed | `any` | n/a | yes |
+| <a name="input_lan_ip"></a> [lan\_ip](#input\_lan\_ip) | IP Address that will be used as a default gateway for private instances | `any` | n/a | yes |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | OCID of the subnet in which the instance will be deployed. It has to be a PUBLIC subnet | `any` | n/a | yes |
+| <a name="input_tenancy_id"></a> [tenancy\_id](#input\_tenancy\_id) | OCID of the tenant | `any` | n/a | yes |
+| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of CPUs of the instance | `number` | `1` | no |
+| <a name="input_instance_shape_config_memory_in_gbs"></a> [instance\_shape\_config\_memory\_in\_gbs](#input\_instance\_shape\_config\_memory\_in\_gbs) | GBs of memory assigned to the instance | `number` | `6` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the instance | `string` | `"Nat-Gateway-Instance"` | no |
+| <a name="input_shape"></a> [shape](#input\_shape) | Instance shape to be used | `string` | `"VM.Standard.A1.Flex"` | no |
+| <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | Public key that will have access to the instance. If none is specified, one will be generated | `any` | `null` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | n/a |
+| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
+
 ## Providers
 
 | Name | Version |
@@ -28,24 +49,3 @@ No modules.
 | [oci_core_images.ampere_images_ubuntu](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images) | data source |
 | [oci_core_private_ips.nat_gw_vnic](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_private_ips) | data source| [oci_identity_availability_domain.ad](https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/identity_availability_domain) | data source |
 | [template_file.cloud-config-nat-gw](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_compartment_id"></a> [compartment\_id](#input\_compartment\_id) | OCID of the Compartment in which the instance will be deployed | `any` | n/a | yes |
-| <a name="input_lan_ip"></a> [lan\_ip](#input\_lan\_ip) | IP Address that will be used as a default gateway for private instances | `any` | n/a | yes |
-| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | OCID of the subnet in which the instance will be deployed. It has to be a PUBLIC subnet | `any` | n/a | yes |
-| <a name="input_tenancy_id"></a> [tenancy\_id](#input\_tenancy\_id) | OCID of the tenant | `any` | n/a | yes |
-| <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of CPUs of the instance | `number` | `1` | no |
-| <a name="input_instance_shape_config_memory_in_gbs"></a> [instance\_shape\_config\_memory\_in\_gbs](#input\_instance\_shape\_config\_memory\_in\_gbs) | GBs of memory assigned to the instance | `number` | `6` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name of the instance | `string` | `"Nat-Gateway-Instance"` | no |
-| <a name="input_shape"></a> [shape](#input\_shape) | Instance shape to be used | `string` | `"VM.Standard.A1.Flex"` | no |
-| <a name="input_ssh_public_key"></a> [ssh\_public\_key](#input\_ssh\_public\_key) | Public key that will have access to the instance. If none is specified, one will be generated | `any` | `null` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | n/a |
-| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
