@@ -10,12 +10,26 @@ A reboot of the instance after it's fully deployed might be necessary, due to ho
 
 No requirements.
 
+## Example Usage:
+
+```
+module "nat_gw" {
+    source  = "System-aan-den-Rijn/nat-instance/oci"
+    version = "1.0.0"
+    tenancy_id     = var.tenancy_ocid
+    compartment_id = var.compartment_ocid
+    subnet_id      = oci_core_subnet.subnet1.id
+    lan_ip     = "192.168.1.254" # Using the .1 is not supported by OCI
+    ssh_public_key = "ssh-rsa blablablafakekeyblabla fakeuser@fakehost"
+}
+```
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_compartment_id"></a> [compartment\_id](#input\_compartment\_id) | OCID of the Compartment in which the instance will be deployed | `any` | n/a | yes |
-| <a name="input_lan_ip"></a> [lan\_ip](#input\_lan\_ip) | IP Address that will be used as a default gateway for private instances | `any` | n/a | yes |
+| <a name="input_lan_ip"></a> [lan\_ip](#input\_lan\_ip) | IP Address that will be used as a default gateway for private instances. Using an IP that ends in .1 is not supported by OCI | `any` | n/a | yes |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | OCID of the subnet in which the instance will be deployed. It has to be a PUBLIC subnet | `any` | n/a | yes |
 | <a name="input_tenancy_id"></a> [tenancy\_id](#input\_tenancy\_id) | OCID of the tenant | `any` | n/a | yes |
 | <a name="input_instance_ocpus"></a> [instance\_ocpus](#input\_instance\_ocpus) | Number of CPUs of the instance | `number` | `1` | no |
@@ -28,8 +42,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | n/a |
-| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | n/a |
+| <a name="output_network_entity_id"></a> [network\_entity\_id](#output\_network\_entity\_id) | OCID of the Private IP address - You'll need specifically this value to create the route rules in your route table |
+| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | That. |
 
 ## Providers
 
