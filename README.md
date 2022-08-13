@@ -2,6 +2,10 @@
 
 This little module can be used to deploy a Compute Instance that can be used as a Nat Gateway in the Oracle Cloud, for example, when you're using the Always Free Resources which do not include the standard Nat Gateway.
 
+## Notes
+
+A reboot of the instance after it's fully deployed might be necessary, due to how the attachment of VNICs work in OCI. You should be able to access the instance with the user "ubuntu" - as in: "ubuntu@public-ip". 
+
 ## Requirements
 
 No requirements.
